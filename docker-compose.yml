@@ -38,8 +38,6 @@ services:
       - DB_PORT=5432
       - DB_USER=postgres
       - DB_PASS=postgres
-    ports:
-      - 8000:8000
     depends_on:
       - db
     restart: always
