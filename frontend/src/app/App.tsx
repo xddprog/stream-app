@@ -1,3 +1,4 @@
-import Providers from "./providers";
+import Providers from "./providers"
+import "./styles/index.css"
 
-export const App = () => <Providers />;
+export const App = () => <Providers />
