@@ -9,9 +9,6 @@ class RegisterForm(BaseModel):
     username: str
     password: str
     email: str
-    description: str
-    city: str
-    birthday: datetime
 
 
 class LoginForm(BaseModel):
