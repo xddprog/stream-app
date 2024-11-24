@@ -1,9 +1,9 @@
 FROM python:3.12.4
 
 
-RUN pip install --root-user-action=ignore
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 RUN pip install --upgrade pip
+RUN pip install --root-user-action=ignore
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
