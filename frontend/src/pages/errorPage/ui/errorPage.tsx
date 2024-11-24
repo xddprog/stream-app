@@ -1,5 +1,3 @@
-import { Flex, Text } from "@chakra-ui/react"
-
 import { useRouteError } from "react-router-dom"
 import { getErrorMessage } from "../lib/getErrorMesage"
 
@@ -7,17 +5,11 @@ const ErrorPage = () => {
   const error = useRouteError()
   const errorMessage = getErrorMessage(error)
   return (
-    <Flex direction="column" align="center" justify="center" h="100vh" w="100vw">
-      <Text as="h1" fontSize="xx-large">
-        Oops!
-      </Text>
-      <Text fontSize="xx-large">Sorry, error vim</Text>
-      <Text fontSize="xx-large">
-        <Text as="i" fontSize="xx-large">
-          {errorMessage}
-        </Text>
-      </Text>
-    </Flex>
+    <div className="flex flex-col items-center justify-center h-screen w-[100vw]">
+      <h1 className="font-bold text-4xl">Oops!</h1>
+      <h1>Sorry, error vim</h1>
+      <h1>{errorMessage}</h1>
+    </div>
   )
 }
 
