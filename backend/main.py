@@ -1,4 +1,3 @@
-import asyncio
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from fastapi import FastAPI, Depends, Request
@@ -7,16 +6,10 @@ from fastapi.middleware.cors import CORSMiddleware
 # from backend.utils.dependencies import get_current_user_dependency
 from backend.database.connection.connection import init_database
 from backend.routers.auth import router as auth_router
-from backend.routers.video import router as video_router
-from backend.routers.video import pcs   
-
 
 async def lifespan(app: FastAPI):
     await init_database()
     yield
-    coros = [pc.close() for pc in pcs]
-    await asyncio.gather(*coros)
-    pcs.clear()
 
 
 app = FastAPI(lifespan=lifespan)
@@ -34,7 +27,6 @@ app.add_middleware(
 
 
 app.include_router(auth_router)
-app.include_router(video_router)
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(
