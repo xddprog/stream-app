@@ -31,7 +31,9 @@ const Header = () => {
             <Icon type={IconTypes.MENU_OUTLINED} />
           </span>
         </div>
-        <Input className="w-[350px] text-white" placeholder="Поиск..." />
+        <div className="w-[350px]">
+          <Input className=" text-white" placeholder="Поиск..." />
+        </div>
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-4">
             <Icon type={IconTypes.KING_OUTLINED} className="cursor-pointer" />

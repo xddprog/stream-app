@@ -3,14 +3,17 @@ import StreamCard from "./streamCard"
 import { ERoutesNames } from "@pages/routes"
 import { FC, useCallback } from "react"
 import { IStream } from "@entities/streams"
+import { useActions } from "@shared/hooks/useActions"
 
 interface IStreamListProps {
   streams: Array<IStream>
 }
 const StreamsList: FC<IStreamListProps> = ({ streams }) => {
   const navigate = useNavigate()
+  const { setSelectStream } = useActions()
 
   const handleNavigateToDetail = useCallback((id: number) => {
+    setSelectStream(id)
     navigate(`${ERoutesNames.LIVE_CHANEL_PAGE}/${id}`, { replace: true })
   }, [])
 

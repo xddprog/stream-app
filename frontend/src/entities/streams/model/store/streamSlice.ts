@@ -1,6 +1,6 @@
 import { streams } from "../mocks"
 import { IStreamState } from "./types"
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 export const initialState: IStreamState = {
   streams: streams,
@@ -10,7 +10,14 @@ export const initialState: IStreamState = {
 export const streamSlice = createSlice({
   name: "stream-slice",
   initialState,
-  reducers: () => ({})
+  reducers: () => ({
+    setSelectStream: (state, { payload }: PayloadAction<number>) => {
+      const findStream = state.streams.findIndex(stream => stream.id === payload)
+      if (findStream !== -1) {
+        state.selectStream = state.streams[findStream]
+      }
+    }
+  })
 })
 
 export const streamActions = streamSlice.actions

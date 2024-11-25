@@ -62,19 +62,25 @@ const BrowsePage = () => {
           ))}
         </div>
         <div className="flex md:justify-between items-center space-y-3 lg:space-y-0 flex-col lg:flex-row">
-          <Input className="w-[280px]" placeholder="Поиск..." />
+          <div className="w-[280px]">
+            <Input placeholder="Поиск..." />
+          </div>
           <div className="flex items-center lg:space-x-4">
             <span className="hidden lg:block">Sort By</span>
-            <Select>
-              <SelectTrigger className="w-[280px] ">
-                <SelectValue placeholder="Рекомендовано для вас" />
-              </SelectTrigger>
-              <SelectContent>
-                {sortedBy.map(item => (
-                  <SelectItem value={item.value}>{item.value}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="w-[280px] ">
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Рекомендовано для вас" />
+                </SelectTrigger>
+                <SelectContent>
+                  {sortedBy.map(item => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.value}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
         </div>
 

@@ -12,6 +12,7 @@ const RootPage = () => {
   const { getCurrentUser } = useActions()
 
   const isCheckPathname = useMemo(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, path, id]: Array<string> = pathname.split("/").filter(path => path)
     return !!(path && id)
   }, [pathname])
@@ -32,7 +33,7 @@ const RootPage = () => {
         </Aside>
         <Suspense
           fallback={
-            <div className="flex justify-center items-center min-h-screen">
+            <div className="flex justify-center items-center min-h-screen bg-black">
               <h1>Loading...</h1>
             </div>
           }
